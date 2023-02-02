@@ -29,7 +29,6 @@ def stop_callback():
 
 
 def game_loop():
-    print(is_running)
     if is_running:
         move()
     map_game.tk.after(REFRESH_TIME, game_loop)
