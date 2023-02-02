@@ -5,12 +5,11 @@ from Class.npc import Npc
 
 
 class Map:
-    def __init__(self, canvas_height, canvas_width):
-        self.tk = Tk()
+    def __init__(self, tk, canvas_height, canvas_width):
         self.height = canvas_height
         self.width = canvas_width
         # creating a simple canvas
-        self.canvas = Canvas(self.tk, bg="white", height=str(canvas_height), width=str(canvas_width))
+        self.canvas = Canvas(tk, bg="white", height=str(canvas_height), width=str(canvas_width))
         self.canvas.pack()
 
     def create_center(self, circle_radius):
