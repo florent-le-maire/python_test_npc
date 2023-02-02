@@ -48,6 +48,8 @@ if __name__ == '__main__':
 
     stop_button = tk.Button(map_game.tk, text="Pause/Play", command=stop_callback)
     stop_button.pack()
+    quit_button = tk.Button(map_game.tk, text="Quitter", command=map_game.tk.destroy)
+    quit_button.pack()
 
     game_loop()
 
