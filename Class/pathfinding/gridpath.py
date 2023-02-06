@@ -4,6 +4,8 @@ from Class.pathfinding.node import Node
 class GridPath:
     def __init__(self, height, width):
         self.nodes = []
+        self.width = width
+        self.height = height
         for i in range(height):
             for j in range(width):
                 self.nodes.append(Node(i, j))
@@ -23,6 +25,5 @@ class GridPath:
                 return 1
         return float('inf')
 
-    def display_grid(self, canvas):
-        print("je suis la grille")
-        # for i, j in self.nodes:
+    def display_grid(self, canvas, width_screen, height_screen):
+        print("c'est l'esprit de la scep")
