@@ -1,7 +1,7 @@
 from Class.game_manager import GameManager
 
-SCREEN_WIDTH = 1280
-SCREEN_HEIGHT = 720
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 800
 REFRESH_TIME = 100
 
 if __name__ == '__main__':

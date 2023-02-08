@@ -27,9 +27,9 @@ class GameManager:
         self.game_loop_job = 0
 
         # Game Map
-        self.map_game = Map(self.tk, self.SCREEN_HEIGHT, self.SCREEN_WIDTH)
+        self.map_game = Map(self.tk, self.SCREEN_HEIGHT, self.SCREEN_WIDTH, 3, 3)
         self.map_game.create_center(600)
-
+        self.map_game.show_grid()
         self.create_ui()
 
         self.tk.mainloop()
@@ -51,7 +51,7 @@ class GameManager:
 
     def generate_npc(self, number):
         for i in range(number):
-            self.list_npc.append(Npc(self.map_game.canvas, self.SPAWN_POINT_X, self.SPAWN_POINT_Y))
+            self.list_npc.append(Npc(self.map_game.canvas, self.map_game.get_start_point()))
 
     # TODO update this function so that
     # TODO it can create a defined number of buildings
