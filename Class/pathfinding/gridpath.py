@@ -16,8 +16,6 @@ class GridPath:
                 self.nodes.append(Node(pos_x, pos_y))
                 print(pos_x, pos_y)
 
-
-
     def get_middle_node(self):
         middle_node_index = round((len(self.nodes) - 1) / 2)
         return self.nodes[int(middle_node_index)]
