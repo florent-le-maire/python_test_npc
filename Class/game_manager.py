@@ -4,6 +4,8 @@ from Class.building import Building
 import tkinter as tk
 from tkinter import *
 
+from Class.pathfinding.node import Node
+
 
 class GameManager:
 
@@ -27,7 +29,7 @@ class GameManager:
         self.game_loop_job = 0
 
         # Game Map
-        self.map_game = Map(self.tk, self.SCREEN_HEIGHT, self.SCREEN_WIDTH, 3, 3)
+        self.map_game = Map(self.tk, self.SCREEN_HEIGHT, self.SCREEN_WIDTH, 30, 30)
         self.map_game.create_center(600)
         self.map_game.show_grid()
         self.create_ui()
@@ -62,7 +64,7 @@ class GameManager:
 
     def move(self):
         for npc in self.list_npc:
-            npc.move()
+            npc.move(self.map_game.grid)
 
     def stop_callback(self):
         if self.is_running:

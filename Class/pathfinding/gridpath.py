@@ -5,16 +5,19 @@ class GridPath:
     def __init__(self, canvas, height, width):
         self.width_screen = int(canvas['width'])
         self.height_screen = int(canvas['height'])
-        self.canvas = canvas
-        self.nodes = []
         self.width = width
         self.height = height
+        self.step_x = self.width_screen / self.width
+        self.step_y = self.height_screen / self.height
+        self.canvas = canvas
+        self.nodes = []
+
         for x in range(height):
             for y in range(width):
-                pos_x = x * (self.width_screen / self.width)
-                pos_y = y * (self.height_screen / self.height)
-                self.nodes.append(Node(pos_x, pos_y))
-                print(pos_x, pos_y)
+                pos_x = x * self.step_x
+                pos_y = y * self.step_y
+                n = Node(pos_x, pos_y)
+                self.nodes.append(n)
 
     def get_middle_node(self):
         middle_node_index = round((len(self.nodes) - 1) / 2)
@@ -25,7 +28,7 @@ class GridPath:
         for i, node in enumerate(self.nodes):
             if len(neighbors) >= 8:
                 break
-            if node_search.is_neighbor(node):
+            if node_search.is_neighbor(node, self.step_x, self.step_y):
                 neighbors.append(node)
         return neighbors
 
